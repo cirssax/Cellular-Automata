@@ -56,6 +56,55 @@ public class CodigoFuente
         System.arraycopy(Siguiente, 0, Inicial, 0, Inicial.length);
     }
     
+    public void regla76(int Inicial[], int Siguiente[], Graphics g)
+    {
+        int aux, posx=0, posy=0;
+        for (int i=0; i<Inicial.length; i++)
+        {
+            for (int j=0; j<Inicial.length; j++)
+            {
+                aux=num(j, Inicial);
+                switch (aux) 
+                {
+                    case 0:
+                        Siguiente[j]=0;
+                        break;
+                    case 1:
+                        Siguiente[j]=0;
+                        break;
+                    case 10:
+                        Siguiente[j]=1;
+                        g.drawImage(negro.getImage(), posy, posx, 2, 2,null);
+                        break;
+                    case 11:
+                        Siguiente[j]=1;
+                        g.drawImage(negro.getImage(), posy, posx, 2, 2,null);
+                        break;
+                    case 100:
+                        Siguiente[j]=0;
+                        break;
+                    case 101:
+                        Siguiente[j]=0;
+                        break;
+                    case 110:
+                        Siguiente[j]=1;
+                        g.drawImage(negro.getImage(), posy, posx, 2, 2,null);
+                        break;
+                    case 111:
+                        Siguiente[j]=0;
+                        break;
+                    default:
+                        break;
+                }
+                posy=posy+2;
+            }
+            posy=0;
+            posx=posx+2;
+            copiar(Inicial, Siguiente);
+        }
+    }
+      
+    
     public void regla110B(int Inicial[], int Siguiente[], Graphics g)
     {
         int aux, posx=0, posy=0;
